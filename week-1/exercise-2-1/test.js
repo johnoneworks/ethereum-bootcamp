@@ -1,5 +1,4 @@
-const getAddress = require("./getAddress");
-const { secp256k1 } = require("ethereum-cryptography/secp256k1");
+const hashMessage = require("./hashMessage");
 const { assert } = require("chai");
 const { toHex } = require("ethereum-cryptography/utils");
 
