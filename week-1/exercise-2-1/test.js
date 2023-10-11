@@ -2,15 +2,12 @@ const hashMessage = require("./hashMessage");
 const { assert } = require("chai");
 const { toHex } = require("ethereum-cryptography/utils");
 
-const PRIVATE_KEY = "6b911fd37cdf5c81d4c0adb1ab7fa822ed253ab0ad9aa18d77257c88b29b718e";
-const EXPECTED_ADDRESS = "04828bd01f5b6107151bae2060e79c7841c8c93f";
+const HELLO_WORLD_HASH_HEX = "47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad";
 
-describe("Get Address", () => {
-    it("should get the address from a public key", async () => {
-        const publicKey = secp256k1.getPublicKey(PRIVATE_KEY);
+describe("Hash Message", () => {
+    it("should return the keccak256 hash of 'hello world'", () => {
+        const messageHash = hashMessage("hello world");
 
-        const address = toHex(getAddress(publicKey));
-
-        assert.equal(address.toLocaleLowerCase(), EXPECTED_ADDRESS.toLocaleLowerCase());
+        assert.equal(toHex(messageHash), HELLO_WORLD_HASH_HEX);
     });
 });
