@@ -1,3 +1,4 @@
+const signMessage = require("./signMessage");
 const hashMessage = require("./hashMessage");
 const { assert } = require("chai");
 const { toHex } = require("ethereum-cryptography/utils");
