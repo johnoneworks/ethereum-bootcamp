@@ -5,7 +5,10 @@ const hashMessage = require("./hashMessage");
 const PRIVATE_KEY = "6b911fd37cdf5c81d4c0adb1ab7fa822ed253ab0ad9aa18d77257c88b29b718e";
 
 async function signMessage(message) {
-    // 這個 function 就交給妳實作囉
+    const messageHash = hashMessage(message);
+    const signedMessage = await secp256k1.sign(messageHash, PRIVATE_KEY);
+    //console.log("signedMessage", signedMessage);
+    return signedMessage;
 }
 
 module.exports = signMessage;
